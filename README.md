@@ -1,6 +1,6 @@
 # docker-plugins
 
-A Docker container for running [plugn](https://github.com/progrium/plugn) plugins that respond to Docker events, and a collection of generally useful Docker plugins.
+A Docker container for running [plugn](https://github.com/progrium/plugn) plugins that respond to Docker events, and a builtin collection of generally useful Docker plugins.
 
 ## Using docker-plugins
 
@@ -41,7 +41,7 @@ Plugins can be installed from any Git repository. The `plugn install` command is
 
 ## Writing plugins
 
-Plugins are simply directories of executable hook scripts for available hooks, similar to Dokku plugins, and a plugin.toml file. The `plugn` tool is still a work in progress, but will eventually help manage compatibility and configuration. 
+Plugins are simply directories of executable hook scripts for available hooks, similar to Dokku plugins, and a plugin.toml file. The `plugn` tool helps manage these plugins. It is still a work in progress, but will eventually also help manage compatibility and configuration. 
 
 ### Hook scripts
 
