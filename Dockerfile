@@ -1,7 +1,7 @@
 FROM ubuntu-debootstrap
 MAINTAINER Jeff Lindsay <progrium@gmail.com>
 
-RUN apt-get update && apt-get install -y curl jq
+RUN apt-get update && apt-get install -y curl jq git
 
 ADD https://get.docker.io/builds/Linux/x86_64/docker-1.3.0 /bin/docker
 RUN chmod +x /bin/docker
