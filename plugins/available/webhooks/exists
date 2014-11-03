@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_post exists "${WEBHOOKS_EXISTS_URL:-$WEBHOOKS_URL}"

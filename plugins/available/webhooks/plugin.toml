@@ -1,0 +1,11 @@
+[plugin]
+name = "webhooks"
+description = "Hits WEBHOOKS_URL or WEBHOOKS_<EVENT>_URL with a POST for each event"
+version = "1.0"
+maintainer_name = "Jeff Lindsay"
+maintainer_email = "progrium@gmail.com"
+website_url = "http://github.com/progrium/docker-plugins"
+
+[plugin.config]
+
+[plugin.compatibility]

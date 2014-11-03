@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_post die "${WEBHOOKS_DIE_URL:-$WEBHOOKS_URL}"

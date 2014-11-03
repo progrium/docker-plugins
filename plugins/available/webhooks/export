@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_post export "${WEBHOOKS_EXPORT_URL:-$WEBHOOKS_URL}"

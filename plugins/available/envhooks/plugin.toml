@@ -1,0 +1,11 @@
+[plugin]
+name = "envhooks"
+description = "Evaluates hook code from environ variables ENVHOOKS_<EVENT>"
+version = "1.0"
+maintainer_name = "Jeff Lindsay"
+maintainer_email = "progrium@gmail.com"
+website_url = "http://github.com/progrium/docker-plugins"
+
+[plugin.config]
+
+[plugin.compatibility]

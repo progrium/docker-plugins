@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_post start "${WEBHOOKS_START_URL:-$WEBHOOKS_URL}"

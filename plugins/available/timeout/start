@@ -1,0 +1,16 @@
+#!/bin/bash
+
+extract-timeout() {
+	jq -r ".Config.Env[]" | awk '/TIMEOUT=/{split($0,kv,"="); print kv[2]}'
+}
+
+main() {
+	declare id="$1"
+	local timeout="$(cat | extract-timeout)"
+	if [[ "$timeout" ]]; then
+		sleep "$timeout"
+		docker kill "$id"
+	fi	
+}
+
+main "$@"

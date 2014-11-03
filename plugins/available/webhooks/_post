@@ -1,0 +1,10 @@
+#!/bin/bash
+
+main() {
+	declare event="$1" url="$2"
+	if [[ "$url" ]]; then
+		cat | curl -s -X POST -d @- -H "Content-Type: application/json" "$url?event=$event" > /dev/null
+	fi
+}
+
+main "$@"

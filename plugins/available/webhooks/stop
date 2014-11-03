@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_post stop "${WEBHOOKS_STOP_URL:-$WEBHOOKS_URL}"

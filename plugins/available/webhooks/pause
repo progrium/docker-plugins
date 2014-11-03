@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_post pause "${WEBHOOKS_PAUSE_URL:-$WEBHOOKS_URL}"
