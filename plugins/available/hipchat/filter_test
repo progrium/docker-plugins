@@ -1,0 +1,11 @@
+main() {
+  declare container="$1"
+
+  export UNIT_TEST=1
+  source _send
+
+  docker inspect ${container:-$(docker ps -ql)} | jq .[0] \
+  | jq --arg event HOOK_TEST "$(get_jq_filter)"
+}
+
+main "$@"

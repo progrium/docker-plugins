@@ -1,0 +1,39 @@
+DEFAULT_MSG_FIELDS=".Name,.Config.Image,.NetworkSettings.IPAddress"
+
+get_jq_filter() {
+  local fields_filter="\"Container: \" + \$event "
+
+  IFS=","
+  for field in ${CONFIG_MSG_FIELDS:-$DEFAULT_MSG_FIELDS}; do
+    fields_filter="${fields_filter} + \" ${field##*.}=\" + ${field} "
+  done
+  unset IFS
+
+  echo $fields_filter
+}
+
+fix_config() {
+  CONFIG_TOKEN="$HIPCHAT_TOKEN"
+  CONFIG_ROOM_ID="$HIPCHAT_ROOM_ID"
+}
+
+# simulating dockerhook call:
+#     docker inspect $(docker ps -ql)|jq .[0]| ./_send HOOK
+main() {
+  declare hook="$1"
+  : ${hook:? required}
+  # until config name perfix depends on directory name
+  fix_config
+  : ${CONFIG_TOKEN:?"required, defaults to HIPCHAT_TOKEN"}
+  : ${CONFIG_ROOM_ID:?"required, defauts to HIPCHAT_ROOM_ID"}
+
+  cat \
+    | jq --arg event "$hook" "$(get_jq_filter)" -r \
+    | $(dirname $BASH_SOURCE)/hipchat_room_message \
+       -t $CONFIG_TOKEN \
+       -r $CONFIG_ROOM_ID \
+       -v v2 \
+       -f docker-plugin
+}
+
+[[ "$UNIT_TEST" ]] || main "$@"
