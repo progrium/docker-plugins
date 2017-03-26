@@ -9,7 +9,7 @@ RUN chmod +x /bin/docker
 ADD https://github.com/progrium/dockerhook/releases/download/v0.1.0/dockerhook_0.1.0_linux_x86_64.tgz /tmp/dockerhook.tgz
 RUN cd /bin && tar -zxf /tmp/dockerhook.tgz && rm /tmp/dockerhook.tgz
 
-ADD https://github.com/progrium/plugn/releases/download/v0.1.0/plugn_0.1.0_linux_x86_64.tgz /tmp/plugn.tgz
+ADD https://github.com/dokku/plugn/releases/download/v0.3.0/plugn_0.3.0_linux_x86_64.tgz /tmp/plugn.tgz
 RUN cd /bin && tar -zxf /tmp/plugn.tgz && rm /tmp/plugn.tgz
 
 ADD ./plugins /plugins
