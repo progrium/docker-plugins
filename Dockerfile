@@ -1,4 +1,4 @@
-FROM ubuntu-debootstrap
+FROM ubuntu:14.04.5
 MAINTAINER Jeff Lindsay <progrium@gmail.com>
 
 RUN apt-get update && apt-get install -y curl jq git
