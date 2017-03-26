@@ -43,6 +43,8 @@ Plugins can be installed from any Git repository. The `plugn install` command is
 
 Plugins are simply directories of executable hook scripts for available hooks, similar to Dokku plugins, and a plugin.toml file. The `plugn` tool helps manage these plugins. It is still a work in progress, but will eventually also help manage compatibility and configuration. 
 
+Plugins can also implement a `dependencies` hook. The first argument is the plugin name, and this can be used to optionally trigger installing dependencies in use by your plugin.
+
 ### Hook scripts
 
 Hook scripts are called by `plugn`, but ultimately triggered by [dockerhook](https://github.com/progrium/dockerhook). For every event from the Docker stream, dockerhook triggers our plugn hooks passing it the container ID as the first argument, and inspected JSON of the container if available via STDIN. It would be *similar* to a command like this:
@@ -53,7 +55,7 @@ However, the JSON passed in is a single object, not a list of objects like the o
 
 ### Builtin tools for hooks
 
-The container environment is based on `ubuntu-debootstrap`, a small Ubuntu base image. `jq` is installed for handling JSON data. The `docker` binary is installed so you can interact with Docker. `curl` and a few others are also installed. Perhaps it would be a good idea to have an `install` hook, allowing plugins to install other tools they might need. 
+The container environment is based on `ubuntu-debootstrap`, a small Ubuntu base image. `jq` is installed for handling JSON data. The `docker` binary is installed so you can interact with Docker. `curl` and a few others are also installed.
 
 ### Available hooks
 
