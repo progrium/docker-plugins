@@ -4,6 +4,7 @@ main() {
 	mkdir -p "$PLUGIN_PATH/enabled" # until plugn ensures this for us
 	if [[ "$INSTALL" ]]; then
 		printf "%s\n" $INSTALL | xargs -L 1 plugn install
+		printf "%s\n" $INSTALL | xargs -L 1 plugn trigger dependencies
 	fi
 	if [[ "$ENABLE" ]]; then
 		printf "%s\n" $ENABLE | xargs -L 1 plugn enable
