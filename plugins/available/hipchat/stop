@@ -1,0 +1,2 @@
+#!/bin/bash
+cat | $(dirname $BASH_SOURCE)/_send stop
