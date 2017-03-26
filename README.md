@@ -55,7 +55,11 @@ However, the JSON passed in is a single object, not a list of objects like the o
 
 ### Builtin tools for hooks
 
-The container environment is based on `ubuntu-debootstrap`, a small Ubuntu base image. `jq` is installed for handling JSON data. The `docker` binary is installed so you can interact with Docker. `curl` and a few others are also installed.
+The container environment is based on `ubuntu:14.04`. The `docker` binary is installed so you can interact with Docker. The following are some other packages made available to you:
+
+- `curl` for http access.
+- `git` for use with installing plugins.
+- `jq` is installed for handling JSON data.
 
 ### Available hooks
 
